@@ -13,7 +13,7 @@ for val in x:
 
 # c) Put the code from (b) in a function called ‘find_total’, which takes a list x as a parameter,
 # and returns total.
-def find_total(x: list):
+def find_total(x: list) -> int:
     total = 0
     for val in x:
         total+=val
