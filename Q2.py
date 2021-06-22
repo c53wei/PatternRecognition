@@ -1,5 +1,5 @@
+import pickle
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 
 from scipy import signal
@@ -7,6 +7,7 @@ from scipy import signal
 # Part d function
 def find_Tpeaks(data: np.array):
     return signal.find_peaks(data, height=[5.5, 6], threshold=0, distance=35)[0]
+
 # Part e function
 def find_better_Tpeaks(data: np.array) -> list:
     """
@@ -33,7 +34,8 @@ def find_better_Tpeaks(data: np.array) -> list:
 
 # Question Two: Python Problem Solving
 # a) Load the file 106m.pkl from Learn, using pickle. This file contains an ECG signal.
-data = np.array(pd.read_pickle('106m.pkl'))/200
+with open('106m.pkl', 'rb') as file:
+    data = np.array(pickle.load(file))/200
 # b) Plot the first five seconds of the ECG signal in mV vs. time in seconds and label the axes.
 #    Note that the sampling rate is 360 samples/s. Dividing the signal by 200 will give the signal
 #    in mV. You should put the data in a numpy ndarray to conveniently divide these values.
