@@ -10,7 +10,7 @@ def calc_feats(ecg: np.array) -> ():
     """
     # Calculate forward difference between samples
     diff_for = [i-j for i, j in zip(ecg[:-1], ecg[1:])]
-    # Calculate backward differnce between samples
+    # Calculate backward difference between samples
     diff_back = [-1 * diff_for[2]] + [-1*x for x in diff_for]
     diff_for.append(diff_for[0])
     return np.array(diff_for), np.array(diff_back)
@@ -35,7 +35,7 @@ ax.grid(True)
 plt.xlabel('Forward Difference Between Samples')
 plt.ylabel('Backward Difference Between Samples')
 plt.savefig('peak_classification.png')
-plt.show()
+# plt.show()
 plt.close()
 
 

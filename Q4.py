@@ -20,7 +20,7 @@ pred_labels[pred_label_1_idx] = 'Class 1'
 # Plot, label, save
 fig, ax = plt.subplots()
 colours = ['r', 'b', 'g']
-for i, cls in enumerate(set(pred_labels)):
+for i, cls in enumerate(pred_labels):
     idx = np.where(pred_labels == cls)[0]
     ax.scatter(x[idx], y[idx], c=colours[i], label=cls)
 ax.legend()
@@ -32,7 +32,7 @@ plt.title('Predicted Labels')
 plt.xlabel('Forward Difference Between Samples')
 plt.ylabel('Backward Difference Between Samples')
 plt.savefig('manual_classifier.png')
-plt.show()
+# plt.show()
 plt.close()
 
 
